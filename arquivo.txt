@@ -1,0 +1,3 @@
+Cliente cartão:Jose,Maria,João,Haroldo,Joaquim,Josiscreidi
+Cliente cheque:Monica,Cebolinha,Cascao,Josiscreidi,Jose,Haroldo
+Cliente dinheiro:Thor,Hulk,João,Joaquim,Homem de Ferro,Pantera Negra,Monica,Bob Espoja,Josiscreidi
