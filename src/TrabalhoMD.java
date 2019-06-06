@@ -5,6 +5,9 @@ class TrabalhoMD {
     public static void main(String[] args) {
         Loja loja = new Loja();
         loja.letraA();
+        loja.letraB();
+        loja.letraC();
+        loja.letraD();
 
     }
 }
@@ -13,7 +16,6 @@ class Loja {
     private List<Integer> clientesCartao = new ArrayList<>();
     private List<Integer> clientesCheque = new ArrayList<>();
     private List<Integer> clientesDinheiro = new ArrayList<>();
-    private List<Integer> Total = new ArrayList<>();
 
     Loja() {
 
@@ -32,10 +34,39 @@ class Loja {
     }
 
     public void letraA() {
-        for (int item : clientesCartao)
-            if (clientesCheque.contains(item) && clientesDinheiro.contains(item))
-                Total.add(item);
+        List<Integer> Total = new ArrayList<>();
+        for (int cliente : clientesCartao)
+            if (clientesCartao.contains(cliente) && clientesCheque.contains(cliente) && clientesDinheiro.contains(cliente))
+                Total.add(cliente);
 
-        System.out.println("Total de clientes que pagam em dinheiro, cheque e cartão: " + Total.size());
+        System.out.println("Número de clientes que pagam em dinheiro, cheque e cartão: " + Total.size());
     }
+
+    public void letraB() {
+        List<Integer> Total = new ArrayList<>();
+        for (int cliente : clientesDinheiro)
+            if (clientesDinheiro.contains(cliente) && clientesCheque.contains(cliente))
+                Total.add(cliente);
+
+        System.out.println("Número de clientes que pagam em dinheiro e com cheque: " + Total.size());
+    }
+
+    public void letraC() {
+        List<Integer> Total = new ArrayList<>();
+        for (int cliente : clientesDinheiro)
+            if (clientesDinheiro.contains(cliente) && clientesCartao.contains(cliente))
+                Total.add(cliente);
+
+        System.out.println("Número de clientes que pagam em dinheiro e cartão de crédito: " + Total.size());
+    }
+
+    public void letraD() {
+        List<Integer> Total = new ArrayList<>();
+        for (int cliente : clientesCartao)
+            if (clientesCartao.contains(cliente) && clientesCheque.contains(cliente))
+                Total.add(cliente);
+
+        System.out.println("Número de clientes que pagam em cartão de crédito e cheque: " + Total.size());
+    }
+    
 }
