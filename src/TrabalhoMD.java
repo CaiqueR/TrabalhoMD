@@ -5,6 +5,8 @@ class TrabalhoMD {
         loja.letraB();
         loja.letraC();
         loja.letraD();
+        loja.letraE();
+        loja.letraF();
 
     }
 }

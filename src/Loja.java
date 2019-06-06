@@ -14,11 +14,25 @@ class Loja {
     }
 
     public void letraA() {
-        List<String> Total = clientesCartao.stream()
-                .filter(x -> clientesCartao.contains(x) && clientesCheque.contains(x) && clientesDinheiro.contains(x))
+        List<String> Total = clientesDinheiro.stream()
+                .filter(x -> !clientesCartao.contains(x) && !clientesCheque.contains(x))
                 .collect(Collectors.toList());
 
-        System.out.println("Número de clientes que pagam em dinheiro, cheque e cartão: " + Total.size());
+        System.out.println("Número de clientes que pagam somente em dinheiro: " + Total.size());
+
+        Total.clear();
+        Total = clientesCheque.stream()
+                .filter(x -> !clientesCartao.contains(x) && !clientesDinheiro.contains(x))
+                .collect(Collectors.toList());
+
+        System.out.println("Número de clientes que pagam somente em cheque: " + Total.size());
+
+        Total.clear();
+        Total = clientesCartao.stream()
+                .filter(x -> !clientesCheque.contains(x) && !clientesDinheiro.contains(x))
+                .collect(Collectors.toList());
+
+        System.out.println("Número de clientes que pagam somente em cartão: " + Total.size());
     }
 
     public void letraB() {
@@ -48,4 +62,32 @@ class Loja {
         System.out.println("Número de clientes que pagam em cartão de crédito e cheque: " + Total.size());
     }
 
+    public void letraE() {
+        List<String> Total = clientesCartao.stream()
+                .filter(x -> clientesCartao.contains(x) && clientesCheque.contains(x) && clientesDinheiro.contains(x))
+                .collect(Collectors.toList());
+
+        System.out.println("Número de clientes que pagam em dinheiro, cheque e cartão: " + Total.size());
+    }
+
+    public void letraF() {
+        List<String> Total = new ArrayList<>();
+
+        for (String x : clientesDinheiro) {
+            if(!clientesCartao.contains(x) && !clientesCheque.contains(x))
+                Total.add(x);
+        }
+
+        for (String x : clientesCheque) {
+            if(!clientesCartao.contains(x) && !clientesDinheiro.contains(x))
+                Total.add(x);
+        }
+
+        for (String x : clientesCartao) {
+            if(!clientesCheque.contains(x) && !clientesDinheiro.contains(x))
+                Total.add(x);
+        }
+
+        System.out.println("Número total de clientes: " + Total.size());
+    }
 }
