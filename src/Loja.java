@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 class Loja {
     //Criando lista de clientes da loja por tipo de pagamento
@@ -13,10 +14,9 @@ class Loja {
     }
 
     public void letraA() {
-        List<String> Total = new ArrayList<>();
-        for (String cliente : clientesCartao)
-            if (clientesCartao.contains(cliente) && clientesCheque.contains(cliente) && clientesDinheiro.contains(cliente))
-                Total.add(cliente);
+        List<String> Total = clientesCartao.stream()
+                .filter(x -> clientesCartao.contains(x) && clientesCheque.contains(x) && clientesDinheiro.contains(x))
+                .collect(Collectors.toList());
 
         System.out.println("Número de clientes que pagam em dinheiro, cheque e cartão: " + Total.size());
     }
